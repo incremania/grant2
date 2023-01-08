@@ -126,6 +126,8 @@ app.use('/facebook', facebookRoute)
 //     next(err)
 // })
 
-app.listen('3000', () => {
+const PORT = process.env.PORT
+
+app.listen(PORT, () => {
     console.log('port 3000')
 })
