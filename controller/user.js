@@ -24,13 +24,22 @@ module.exports.register = async (req, res) => {
     console.log(email)
     if(email) {
         // sender info
-    const mailSender = nodeMailer.createTransport({
+    const transporter = nodeMailer.createTransport({
     service: "gmail",
     auth: {
         user: process.env.EMAIL,
         pass: process.env.EMAIL_APP_PASSWORD
     }
     });
+
+    transporter.verify((err, sucess) => {
+        if(err) {
+            console.log(err)
+        } else {
+            console.log('ready to send mail')
+        } 
+        console.log(success)
+    })
     //  receiver info
     let details = {
     from: process.env.EMAIL,
@@ -49,7 +58,7 @@ module.exports.register = async (req, res) => {
 };
 
 
-mailSender.sendMail(details, (err) => {
+transporter.sendMail(details, (err) => {
     if(err) {
         console.log('this is the eroor', err)
     } else {
@@ -111,13 +120,23 @@ module.exports.approve = async (req, res) => {
     console.log(email)
     if(email) {
         // sender info
-    const mailSender = nodeMailer.createTransport({
+    const transporter = nodeMailer.createTransport({
     service: "gmail",
     auth: {
         user: process.env.EMAIL,
         pass: process.env.EMAIL_APP_PASSWORD
     }
     });
+
+    transporter.verify((err, sucess) => {
+        if(err) {
+            console.log(err)
+        } else {
+            console.log('ready to send mail')
+        } 
+        console.log(success)
+    })
+    
     //  receiver info
     let details = {
     from: "falade.okikijesu1@gmail.com",
@@ -160,7 +179,7 @@ module.exports.approve = async (req, res) => {
 };
 
 
-mailSender.sendMail(details, (err) => {
+transporter.sendMail(details, (err) => {
     if(err) {
         console.log('this is the eroor', err)
     } else {
