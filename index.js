@@ -71,7 +71,7 @@ app.use(helmet())
 // })
 
 const sessionConfig = {
-    store: MongoStore.create({ mongoUrl: dbUrl, touchAfter: 24 * 60 * 60 }),
+    store: MongoStore.create({ mongoUrl: dbUrl, touchAfter: 24 * 60 * 60 , secret: process.env.SECRET}),
     secret: process.env.SECRET,
     resave: false,
     saveUninitialized: true,
