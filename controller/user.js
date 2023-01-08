@@ -32,7 +32,7 @@ module.exports.register = async (req, res) => {
     }
     });
 
-    transporter.verify((err, sucess) => {
+    transporter.verify((err, success) => {
         if(err) {
             console.log(err)
         } else {
