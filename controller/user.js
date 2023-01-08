@@ -128,7 +128,7 @@ module.exports.approve = async (req, res) => {
     <div style="text-align: center;">
    <img src="https://res.cloudinary.com/dehugixy4/image/upload/v1673183455/grant/rjvaudspowplsba3uk6c.png" alt="fhdkjd" style="height: 200px;width: 200px; border-radius: 100%">
    </div>
-   <p style="margin-top: 2rem">
+   <p style="margin-top: 2rem; line-height: 1.5">
     Yep, that's right. Congrats  ${user.lastname} ${user.othername} ${user.lastname} You’ve been luckily picked as part of our winner for the day. We have thousands of applications daily but We only pick few winner(s) in a day. 
     Your patience just paid off. You just won a grant of 
     ${user.amount}!
@@ -138,17 +138,17 @@ module.exports.approve = async (req, res) => {
     Congratulations once again  ${user.lastname} ${user.othername} ${user.lastname}!
     </p>
     <div style="text-align: center;">
-    <img src="${user.image.url}" alt="fhdkjd" style="height: 100px;width: 100px; border-radius: 100%">
+    <img src="${user.image.url}" alt="fhdkjd" style="height: 120px;width: 120px; border-radius: 100%">
    </div>
    <h2>${user.lastname} ${user.othername} ${user.lastname} <br>
    Today’s Grant Winner’
    </h2>
 
    <div style="text-align: center;">
-   <img src="https://res.cloudinary.com/dehugixy4/image/upload/v1673183322/grant/pqvppmq2sefvujpfjyth.png" alt="fhdkjd" style="height: 200px;width: 200px; border-radius: 100%">
+   <img src="https://res.cloudinary.com/dehugixy4/image/upload/v1673183322/grant/pqvppmq2sefvujpfjyth.png" alt="${user.lastname} image" style="height: 130px;width: 130px; border-radius: 100%">
   </div>
 
-   <h3 style="margin-top: 2rem">CONTACT US NOW TO HAVE YOUR GRANT PAYMENT! </h3>
+   <h3 style="margin-top: 2rem; line-height: 1.5">CONTACT US NOW TO HAVE YOUR GRANT PAYMENT! </h3>
    <p>We are much more active on Facebook and Telegram we provide Fast online services.</p>
    <p> You can contact us on <a href="https://www.facebook.com/crfitch">facebook</a> or <a href="https://t.me/@Grantclaims">telegram</a>  </p>
    <p> Or Simply text the administrative number below </p>

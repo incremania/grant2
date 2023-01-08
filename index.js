@@ -17,10 +17,11 @@ const passport = require('passport');
 const localStragedy = require('passport-local');
 const User = require('./models/user');
 const helmet = require('helmet');
+const MongoStore = require('connect-mongo')
 
 
 app.use(express.urlencoded({extended: true}))
-const cors = require('cors')
+const cors = require('cors');
 app.use(cors());
 
 // app.use((req, res, next) => {
@@ -48,7 +49,6 @@ mongoose.connect(dbUrl, {
 })
 .then(() => console.log('connected'))
 
-
 app.engine('ejs', ejsMate)
 app.set('view engine', 'ejs' )
 app.set('views', path.join(__dirname, 'views'))
@@ -60,7 +60,18 @@ app.use(cookieParser())
 app.use(helmet())
 
 
+// const store = new MongoStore({
+//     store: MongoStore.create({ mongoUrl: dbUrl }),
+//     secret: process.env.SECRET,
+//     touchAfter: 24 * 60 * 60
+// })
+
+// Store.on("error", function (e) {
+//     console.log('session store error')
+// })
+
 const sessionConfig = {
+    store: MongoStore.create({ mongoUrl: dbUrl, touchAfter: 24 * 60 * 60 }),
     secret: process.env.SECRET,
     resave: false,
     saveUninitialized: true,
