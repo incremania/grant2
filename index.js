@@ -37,10 +37,10 @@ app.use(cors());
 
 
 
-// const dbUrl = process.env.db || 'mongodb://localhost:27017/grantpro'
+const dbUrl = process.env.DB || 'mongodb://localhost:27017/grantpro'
 // const localDb = 'mongodb://localhost:27017/grantpro',
 mongoose.set('strictQuery', true)
-mongoose.connect('mongodb://localhost:27017/grantpro', {
+mongoose.connect(dbUrl, {
     useNewUrlParser: true, 
     useUnifiedTopology:true,
     family: 4,
