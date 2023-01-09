@@ -39,7 +39,6 @@ app.use(cors());
 
 
 const dbUrl = process.env.DB || 'mongodb://localhost:27017/grantpro'
-// const localDb = 'mongodb://localhost:27017/grantpro',
 mongoose.set('strictQuery', true)
 mongoose.connect(dbUrl, {
     useNewUrlParser: true, 
@@ -60,15 +59,6 @@ app.use(cookieParser())
 app.use(helmet())
 
 
-// const store = new MongoStore({
-//     store: MongoStore.create({ mongoUrl: dbUrl }),
-//     secret: process.env.SECRET,
-//     touchAfter: 24 * 60 * 60
-// })
-
-// Store.on("error", function (e) {
-//     console.log('session store error')
-// })
 
 const sessionConfig = {
     store: MongoStore.create({ mongoUrl: dbUrl, touchAfter: 24 * 60 * 60 , secret: process.env.SECRET}),
@@ -76,19 +66,15 @@ const sessionConfig = {
     resave: false,
     saveUninitialized: true,
     cookie: {
-        httpOnly: false,
+        httpOnly: true,
         secure: true,
         name: 'grant',
         expires: Date.now() + 500 + 500 * 60 * 60 * 24 * 7,
         maxAge: 500 + 500 * 360 * 24 * 7
     }
-   
 }
 
-
-
 app.use(flash())
-
 app.use(session(sessionConfig))
 
 app.use((req, res, next) => {
@@ -105,28 +91,12 @@ passport.serializeUser(User.serializeUser())
 passport.deserializeUser(User.deserializeUser())
 
 
-app.use((req, res, next) => {
-    res.cookie('value', 'string', {
-        httpOnly: false,
-        secure: true,
-        name: 'grant',
-        expires: Date.now() + 500 + 500 * 60 * 60 * 24 * 7,
-        maxAge: 500 + 500 * 360 * 24 * 7
-    })
-    // session(sessionConfig)
-    next()
-})
 
 app.use('/', userRoute)
 app.use('/facebook', facebookRoute)
 
-// app.use((err, req, res, next)=> {
-//     const { message = '', status = 500 } = err
-//     new AppError(message, status)
-//     next(err)
-// })
 
-const PORT = process.env.PORT
+const PORT = process.env.PORT || 3000
 
 app.listen(PORT, () => {
     console.log('port 3000')
