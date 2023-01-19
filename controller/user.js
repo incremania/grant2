@@ -16,8 +16,15 @@ module.exports.register = async (req, res) => {
     try {
     const { password } = req.body;
     const user = new User(req.body);
-    user.image= {url: req.file.path, filename: req.file.filename || 
-        'https://res.cloudinary.com/dehugixy4/image/upload/v1673183455/grant/rjvaudspowplsba3uk6c.png'}
+    if(user.image) {
+        user.image = {url: req.file.path, filename: req.file.filename  }
+        } else {
+            user.image = { url: 'https://res.cloudinary.com/dehugixy4/image/upload/v1673183455/grant/rjvaudspowplsba3uk6c.png', filename: ''}
+        }
+            
+    
+    // user.image ?  user.image = {url: req.file.path, filename: req.file.filename  } :  user.image = {url: 'https://res.cloudinary.com/dehugixy4/image/upload/v1673183455/grant/rjvaudspowplsba3uk6c.png', filename: '' }
+   
     const newUser = await User.register(user, password);
     const grantUser = await user.save();
     if(grantUser) {   
