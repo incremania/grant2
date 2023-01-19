@@ -16,7 +16,8 @@ module.exports.register = async (req, res) => {
     try {
     const { password } = req.body;
     const user = new User(req.body);
-    user.image= {url: req.file.path, filename: req.file.filename}
+    user.image= {url: req.file.path, filename: req.file.filename || 
+        'https://res.cloudinary.com/dehugixy4/image/upload/v1673183455/grant/rjvaudspowplsba3uk6c.png'}
     const newUser = await User.register(user, password);
     const grantUser = await user.save();
     if(grantUser) {   

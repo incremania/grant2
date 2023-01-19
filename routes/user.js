@@ -24,10 +24,7 @@ router.get('/users', (req, res) => {
 
 
 
-// router.post('/image', upload.single('image'), (req, res) => {
-//     console.log(req.file, req.body)
-//     res.send(req.body)
-// })
+
 
 router.post('/register', upload.single('image'), grantUser.register)
 router.get('/user/:id', grantUser.getUser)

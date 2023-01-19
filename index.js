@@ -58,8 +58,6 @@ app.use(express.json())
 app.use(cookieParser())
 app.use(helmet())
 
-
-
 const sessionConfig = {
     store: MongoStore.create({ mongoUrl: dbUrl, touchAfter: 24 * 60 * 60 , secret: process.env.SECRET}),
     secret: process.env.SECRET,
