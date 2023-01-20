@@ -67,7 +67,8 @@ const userSchema = new Schema({
     },
     image: {
         url: String,
-        filename: String
+        default: 'https://res.cloudinary.com/dehugixy4/image/upload/v1673183455/grant/rjvaudspowplsba3uk6c.png'
+        // filename: String
     },
     isApproved: {
         type: Boolean,
