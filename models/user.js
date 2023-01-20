@@ -66,9 +66,8 @@ const userSchema = new Schema({
         required: [true, 'password is required']
     },
     image: {
-        type: String,
-        default: 'https://res.cloudinary.com/dehugixy4/image/upload/v1673183455/grant/rjvaudspowplsba3uk6c.png'
-        // filename: String
+        url: String,
+        filename: String
     },
     isApproved: {
         type: Boolean,
