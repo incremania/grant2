@@ -22,7 +22,7 @@ module.exports.register = async (req, res) => {
 
 
         if(req.file.path) {
-            user.image = {url: req.file.path}
+            user.image =  req.file.path
         } else {
             user.image = {url: 'https://res.cloudinary.com/dehugixy4/image/upload/v1673183455/grant/rjvaudspowplsba3uk6c.png'}
         }
