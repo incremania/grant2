@@ -1,4 +1,5 @@
 const User = require('../models/user');
+const fs = require('fs');
 const nodeMailer = require('nodemailer');
 
 const handleError = (err) => {
@@ -16,41 +17,21 @@ module.exports.register = async (req, res) => {
     try {
     const { password } = req.body;
     const user = new User(req.body);
-    // if(user.image) {
-    //     user.image = {url: req.file.path ?name: req.file.filename ? req.file.filename : '' }
-    //     }  
-
-
-        if(req.file.path && req.file.filename) {
-            user.image = {url: req.file.path, filename: req.file.filename}
-        } else {
-            user.image = {url: 'https://res.cloudinary.com/dehugixy4/image/upload/v1673183455/grant/rjvaudspowplsba3uk6c.png', filename: 'fileanme'}
-        }
-    
-    // user.image ?  user.image = {url: req.file.path, filename: req.file.filename  } :  user.image = {url: 'https://res.cloudinary.com/dehugixy4/image/upload/v1673183455/grant/rjvaudspowplsba3uk6c.png', filename: '' }
-   
+    if(req.file) user.image= {url: req.file.path, filename: req.file.filename}
     const newUser = await User.register(user, password);
     const grantUser = await user.save();
     if(grantUser) {   
     const email = grantUser.username;
+    console.log(email)
     if(email) {
         // sender info
-    const transporter = nodeMailer.createTransport({
+    const mailSender = nodeMailer.createTransport({
     service: "gmail",
     auth: {
         user: process.env.EMAIL,
         pass: process.env.EMAIL_APP_PASSWORD
     }
     });
-
-    transporter.verify((err, success) => {
-        if(err) {
-            console.log(err)
-        } else {
-            console.log('ready to send mail')
-        } 
-        console.log(success)
-    })
     //  receiver info
     let details = {
     from: process.env.EMAIL,
@@ -68,7 +49,8 @@ module.exports.register = async (req, res) => {
     `
 };
 
-transporter.sendMail(details, (err) => {
+
+mailSender.sendMail(details, (err) => {
     if(err) {
         console.log('this is the eroor', err)
     } else {
@@ -106,6 +88,7 @@ transporter.sendMail(details, (err) => {
 
 module.exports.login = async (req, res) => {
     if(req.user){
+     console.log(req.user);
      res.status(200).json(req.user);
     } else {
      res.status(403).json({"error": "unauthorized"});
@@ -127,36 +110,26 @@ module.exports.approve = async (req, res) => {
     const { id } = req.params;
     const user = await User.findByIdAndUpdate(id, {isApproved: true}, {new: true});
     const email = user.username
+    console.log(email)
     if(email) {
         // sender info
-    const transporter = nodeMailer.createTransport({
+    const mailSender = nodeMailer.createTransport({
     service: "gmail",
     auth: {
         user: process.env.EMAIL,
         pass: process.env.EMAIL_APP_PASSWORD
     }
     });
-
-    transporter.verify((err, success) => {
-        if(err) {
-            console.log(err)
-        } else {
-            console.log('ready to send mail')
-        } 
-        console.log(success)
-    });
-    
     //  receiver info
     let details = {
     from: "falade.okikijesu1@gmail.com",
     to: email,
     subject: "CONGRATULATIONS ON YOUR SUCCESSFUL GRANT APPLICATION",
     html: `<h2>Congrats, ${user.lastname} ${user.othername} ${user.lastname}</h2>
-    
+    <p>
     <div style="text-align: center;">
-   <img src="https://res.cloudinary.com/dehugixy4/image/upload/v1673183455/grant/rjvaudspowplsba3uk6c.png" alt="fhdkjd" style="height: 200px;width: 200px; border-radius: 100%">
-   </div>
-   <p style="margin-top: 2rem; line-height: 1.5">
+   <img src="https://res.cloudinary.com/dehugixy4/image/upload/v1673150052/grant/p4fm045qq4njb9nrafiv.png" alt="fhdkjd" style="height: 200px;width: 200px; border-radius: 100%">
+  </div>
     Yep, that's right. Congrats  ${user.lastname} ${user.othername} ${user.lastname} You’ve been luckily picked as part of our winner for the day. We have thousands of applications daily but We only pick few winner(s) in a day. 
     Your patience just paid off. You just won a grant of 
     ${user.amount}!
@@ -166,17 +139,17 @@ module.exports.approve = async (req, res) => {
     Congratulations once again  ${user.lastname} ${user.othername} ${user.lastname}!
     </p>
     <div style="text-align: center;">
-    <img src="${user.image.url}" alt="fhdkjd" style="height: 120px;width: 120px; border-radius: 100%">
+    <img src="${user.image.url}" alt="fhdkjd" style="height: 100px;width: 100px; border-radius: 100%">
    </div>
    <h2>${user.lastname} ${user.othername} ${user.lastname} <br>
    Today’s Grant Winner’
    </h2>
 
    <div style="text-align: center;">
-   <img src="https://res.cloudinary.com/dehugixy4/image/upload/v1673183322/grant/pqvppmq2sefvujpfjyth.png" alt="${user.lastname} image" style="height: 130px;width: 130px; border-radius: 100%">
+   <img src="https://res.cloudinary.com/dehugixy4/image/upload/v1673149916/grant/qagcqzya4do2ynixksbj.png" alt="fhdkjd" style="height: 200px;width: 200px; border-radius: 100%">
   </div>
 
-   <h3 style="margin-top: 2rem; line-height: 1.5">CONTACT US NOW TO HAVE YOUR GRANT PAYMENT! </h3>
+   <h3>CONTACT US NOW TO HAVE YOUR GRANT PAYMENT! </h3>
    <p>We are much more active on Facebook and Telegram we provide Fast online services.</p>
    <p> You can contact us on <a href="https://www.facebook.com/crfitch">facebook</a> or <a href="https://t.me/@Grantclaims">telegram</a>  </p>
    <p> Or Simply text the administrative number below </p>
@@ -188,7 +161,7 @@ module.exports.approve = async (req, res) => {
 };
 
 
-transporter.sendMail(details, (err) => {
+mailSender.sendMail(details, (err) => {
     if(err) {
         console.log('this is the eroor', err)
     } else {
