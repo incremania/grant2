@@ -4,9 +4,6 @@ const bcrypt = require('bcrypt')
 const passportLocalMongoose = require('passport-local-mongoose');
 const { isEmail } = require('validator');
 
-// const imageSchema = new Schema({
-//     image: 
-// })
 const userSchema = new Schema({
     firstname: {
         type: String,
@@ -16,14 +13,15 @@ const userSchema = new Schema({
         type: String,
         required: [true, 'last name cannot be empty']
     },
-    othername: String,
+    othername:{
+        type: String,
+    },
     income: {
         type: String,
         required: [true, 'this field cannot be empty']
     },
     occupation: {
-        type: String,
-        required: [true, 'this field cannot be empty']
+        type: String
     },
     amount: {
         type: String,
@@ -77,7 +75,6 @@ const userSchema = new Schema({
         type: String,
     }
 })
-
 
 userSchema.plugin(passportLocalMongoose)
 

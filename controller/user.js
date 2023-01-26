@@ -83,6 +83,7 @@ transporter.sendMail(details, (err) => {
 }
 
     } catch (err) {
+        console.log(err)
         if(err.message === 'No username was given'){
            res.status(400).json({"errorusername": "please enter a username"}) 
         };
