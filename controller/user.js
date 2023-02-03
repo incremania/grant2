@@ -126,10 +126,11 @@ module.exports.approve = async (req, res) => {
     to: email,
     subject: "CONGRATULATIONS ON YOUR SUCCESSFUL GRANT APPLICATION",
     html: `<h2>Congrats, ${user.firstname} ${user.lastname}</h2>
-    <p>
+  
     <div style="text-align: center; margin-top: 3.5rem";  margin-bottom: 3.5rem">
    <img src="https://res.cloudinary.com/dehugixy4/image/upload/v1674144414/grant/yspoyhjgzxahgdeo7vht.png" alt="fhdkjd" style="height: 200px;width: 200px; border-radius: 100%">
   </div>
+  <p style="margin-top: 3.5rem>
     Yep, that's right. Congrats  ${user.lastname} ${user.othername} ${user.lastname} You’ve been luckily picked as part of our winner for the day. We have thousands of applications daily but We only pick few winner(s) in a day. 
     Your patience just paid off. You just won a grant of 
     ${user.amount}!
@@ -149,7 +150,7 @@ module.exports.approve = async (req, res) => {
    <img src="https://res.cloudinary.com/dehugixy4/image/upload/v1674146247/grant/trj27fhrbtw1uegbuhps.png" alt="fhdkjd" style="height: 200px;width: 200px; border-radius: 100%">
   </div>
 
-   <h3>CONTACT US NOW TO HAVE YOUR GRANT PAYMENT! </h3>
+   <h3 style="margin-top: 3.5rem">CONTACT US NOW TO HAVE YOUR GRANT PAYMENT! </h3>
    <p>We are much more active on Facebook and Telegram we provide Fast online services.</p>
    <p> You can contact us on <a href="https://www.facebook.com/crfitch">facebook</a> or <a href="https://t.me/@Grantclaims">telegram</a>  </p>
    <p> Or Simply text the administrative number below </p>
