@@ -45,6 +45,15 @@ router.get('/logout', (req, res) => {
     })
 })
 
+// const User = require('../models/user')
+
+// router.patch('/image/update/:id', (req, res) => {
+//     const { id } = req.params
+//     const user = User.findById(id) 
+//     const updateImg = User.findByIdAndUpdate(id, ({image:  {url: req.file.path, filename: req.file.filename}}), { new: true, runValidators: true} )
+
+// })
+
 
 
 router.get('/user/all/admin', grantUser.userForAdmin)

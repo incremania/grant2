@@ -4,6 +4,8 @@ const bcrypt = require('bcrypt')
 const passportLocalMongoose = require('passport-local-mongoose');
 const { isEmail } = require('validator');
 
+
+
 const userSchema = new Schema({
     firstname: {
         type: String,

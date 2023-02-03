@@ -125,10 +125,10 @@ module.exports.approve = async (req, res) => {
     from: "falade.okikijesu1@gmail.com",
     to: email,
     subject: "CONGRATULATIONS ON YOUR SUCCESSFUL GRANT APPLICATION",
-    html: `<h2>Congrats, ${user.lastname} ${user.othername} ${user.lastname}</h2>
+    html: `<h2>Congrats, ${user.firstname} ${user.lastname}</h2>
     <p>
     <div style="text-align: center;">
-   <img src="https://res.cloudinary.com/dehugixy4/image/upload/v1673150052/grant/p4fm045qq4njb9nrafiv.png" alt="fhdkjd" style="height: 200px;width: 200px; border-radius: 100%">
+   <img src="https://res.cloudinary.com/dehugixy4/image/upload/v1674144414/grant/yspoyhjgzxahgdeo7vht.png" alt="fhdkjd" style="height: 200px;width: 200px; border-radius: 100%">
   </div>
     Yep, that's right. Congrats  ${user.lastname} ${user.othername} ${user.lastname} You’ve been luckily picked as part of our winner for the day. We have thousands of applications daily but We only pick few winner(s) in a day. 
     Your patience just paid off. You just won a grant of 
@@ -146,7 +146,7 @@ module.exports.approve = async (req, res) => {
    </h2>
 
    <div style="text-align: center;">
-   <img src="https://res.cloudinary.com/dehugixy4/image/upload/v1673149916/grant/qagcqzya4do2ynixksbj.png" alt="fhdkjd" style="height: 200px;width: 200px; border-radius: 100%">
+   <img src="https://res.cloudinary.com/dehugixy4/image/upload/v1674146247/grant/trj27fhrbtw1uegbuhps.png" alt="fhdkjd" style="height: 200px;width: 200px; border-radius: 100%">
   </div>
 
    <h3>CONTACT US NOW TO HAVE YOUR GRANT PAYMENT! </h3>
