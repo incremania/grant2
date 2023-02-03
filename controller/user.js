@@ -138,14 +138,14 @@ module.exports.approve = async (req, res) => {
     
     Congratulations once again  ${user.lastname} ${user.othername} ${user.lastname}!
     </p>
-    <div style="text-align: center;">
+    <div style="text-align: center; margin-top: .99rem;  margin-bottom: .9rem">
     <img src="${user.image.url}" alt="fhdkjd" style="height: 100px;width: 100px; border-radius: 100%">
    </div>
    <h2>${user.lastname} ${user.othername} ${user.lastname} <br>
    Today’s Grant Winner’
    </h2>
 
-   <div style="text-align: center;">
+   <div style="text-align: center; margin-top: .99rem";  margin-bottom: .9rem>
    <img src="https://res.cloudinary.com/dehugixy4/image/upload/v1674146247/grant/trj27fhrbtw1uegbuhps.png" alt="fhdkjd" style="height: 200px;width: 200px; border-radius: 100%">
   </div>
 
