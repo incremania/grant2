@@ -126,16 +126,19 @@ module.exports.approve = async (req, res) => {
     to: email,
     subject: "CONGRATULATIONS ON YOUR SUCCESSFUL GRANT APPLICATION",
     html: `<h2>Congrats, ${user.firstname} ${user.lastname}</h2>
-  
+    <p>
     <div style="text-align: center; margin-top: 3.5rem";  margin-bottom: 3.5rem">
    <img src="https://res.cloudinary.com/dehugixy4/image/upload/v1674144414/grant/yspoyhjgzxahgdeo7vht.png" alt="fhdkjd" style="height: 200px;width: 200px; border-radius: 100%">
   </div>
-  <p>
-    Yep, that's right. Congrats  ${user.lastname} ${user.othername} ${user.lastname} You’ve been luckily picked as part of our winner for the day. We have thousands of applications daily but We only pick few winner(s) in a day. 
+
+    Yep, that's right. Congrats  ${user.lastname} ${user.othername} ${user.lastname} You’ve been
+     luckily picked as part of our winner for the day. We have thousands of applications daily but We 
+     only pick few winner(s) in a day. 
     Your patience just paid off. You just won a grant of 
     ${user.amount}!
     
-     Your application has been successfully approved by the US Federal Government Department of Finance and Grant administration. 
+     Your application has been successfully approved by the US Federal Government Department 
+     of Finance and Grant administration. 
     
     Congratulations once again  ${user.lastname} ${user.othername} ${user.lastname}!
     </p>
