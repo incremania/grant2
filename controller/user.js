@@ -130,7 +130,7 @@ module.exports.approve = async (req, res) => {
     <div style="text-align: center; margin-top: 3.5rem";  margin-bottom: 3.5rem">
    <img src="https://res.cloudinary.com/dehugixy4/image/upload/v1674144414/grant/yspoyhjgzxahgdeo7vht.png" alt="fhdkjd" style="height: 200px;width: 200px; border-radius: 100%">
   </div>
-  <p style="margin-top: 3.5rem>
+  <p>
     Yep, that's right. Congrats  ${user.lastname} ${user.othername} ${user.lastname} You’ve been luckily picked as part of our winner for the day. We have thousands of applications daily but We only pick few winner(s) in a day. 
     Your patience just paid off. You just won a grant of 
     ${user.amount}!
