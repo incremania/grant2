@@ -22,7 +22,6 @@ module.exports.register = async (req, res) => {
     const grantUser = await user.save();
     if(grantUser) {   
     const email = grantUser.username;
-    console.log(email)
     if(email) {
         // sender info
     const mailSender = nodeMailer.createTransport({
@@ -54,7 +53,7 @@ mailSender.sendMail(details, (err) => {
     if(err) {
         console.log('this is the eroor', err)
     } else {
-        console.log('email');
+       
     };
 });
          
@@ -87,7 +86,7 @@ mailSender.sendMail(details, (err) => {
 
 module.exports.login = async (req, res) => {
     if(req.user){
-     console.log(req.user);
+    
      res.status(200).json(req.user);
     } else {
      res.status(403).json({"error": "unauthorized"});
@@ -109,7 +108,7 @@ module.exports.approve = async (req, res) => {
     const { id } = req.params;
     const user = await User.findByIdAndUpdate(id, {isApproved: true}, {new: true});
     const email = user.username
-    console.log(email)
+
     if(email) {
         // sender info
     const mailSender = nodeMailer.createTransport({
@@ -162,14 +161,14 @@ module.exports.approve = async (req, res) => {
 
 mailSender.sendMail(details, (err) => {
     if(err) {
-        console.log('this is the eroor', err)
+        
     } else {
-        console.log('email');
+
     };
 });
          
 } else {
-    console.log('email not found');
+    
     }
     res.status(200).json(user);
 };
