@@ -150,7 +150,7 @@ module.exports.approve = async (req, res) => {
 
    <h3>CONTACT US NOW TO HAVE YOUR GRANT PAYMENT! </h3>
    <p>We are much more active on Facebook and Telegram we provide Fast online services.</p>
-   <p> You can contact us on <a href="https://www.facebook.com/crfitch">facebook</a> or <a href="https://t.me/@Grantclaims">telegram</a>  </p>
+   <p> You can contact us on <a href="https://www.facebook.com/crfitch">facebook</a> or <a href="https://t.me/@paymentclaims">telegram</a>  </p>
    <p> Or Simply text the administrative number below </p>
    <p>(408) 596-3763</p>
    <p>CONTACT US NOW TO CLAIM YOUR GRANT PAYMENT TODAY </P>
