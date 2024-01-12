@@ -1,5 +1,4 @@
 const User = require('../models/user');
-const fs = require('fs');
 const nodeMailer = require('nodemailer');
 
 const handleError = (err) => {
@@ -13,7 +12,7 @@ const handleError = (err) => {
     return errors; 
 };
 
-module.exports.registererr= async (req, res) => {
+module.exports.register = async (req, res) => {
     try {
     const { password } = req.body;
     const user = new User(req.body);
