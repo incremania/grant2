@@ -13,7 +13,7 @@ const handleError = (err) => {
     return errors; 
 };
 
-module.exports.register = async (req, res) => {
+module.exports.registererr= async (req, res) => {
     try {
     const { password } = req.body;
     const user = new User(req.body);
