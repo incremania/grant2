@@ -13,7 +13,7 @@ const handleError = (err) => {
 };
 
 
-// register user
+// register user user
 module.exports.register = async (req, res) => {
     try {
     const { password } = req.body;
