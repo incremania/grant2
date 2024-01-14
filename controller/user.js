@@ -12,6 +12,8 @@ const handleError = (err) => {
     return errors; 
 };
 
+
+// register user
 module.exports.register = async (req, res) => {
     try {
     const { password } = req.body;
