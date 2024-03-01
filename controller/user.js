@@ -155,7 +155,7 @@ module.exports.approve = async (req, res) => {
    <p>(408) 596-3763</p>
    <p>CONTACT US NOW TO CLAIM YOUR GRANT PAYMENT TODAY </P>
    <p>You received this email to let you know about a successful Grant Application that you applied at the United States Federal Government Grant Claims.
-   © 2023 Grant Claims, Department Of Finance and Grant administration, USA.</p> 
+   © 2024 Grant Claims, Department Of Finance and Grant administration, USA.</p> 
      `
 };
 
